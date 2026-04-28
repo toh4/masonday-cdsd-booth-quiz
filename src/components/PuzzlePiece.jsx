@@ -21,7 +21,7 @@ function PuzzlePiece({ piece, index, isCompleted, onClick }) {
           className="absolute inset-0 bg-no-repeat"
           style={{
             backgroundImage: "url('/assets/cdsd-logo.png')",
-            backgroundSize: "300% 100%",
+            backgroundSize: "100% 300%",
             backgroundPosition: `center ${index * 50}%`,
           }}
         />
