@@ -34,7 +34,7 @@ function PuzzlePiece({ piece, index, isCompleted, onClick }) {
               : "opacity-100 group-hover:scale-105"
           }`}
         >
-          <span className="rotate-[-90deg] text-2xl font-black tracking-widest text-white">
+          <span className="text-2xl font-black tracking-widest text-white text-center">
             Quiz {piece.id}
           </span>
         </div>
