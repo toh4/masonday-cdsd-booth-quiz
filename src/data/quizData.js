@@ -8,7 +8,7 @@ const quizData = [
   {
     id: 2,
     clue: "Question 2 is near the CDSD booth table.",
-    answer: "CDS",
+    answer: "cds",
     hint: "The major associated with the booth.",
   },
   {
