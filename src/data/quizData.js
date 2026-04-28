@@ -8,8 +8,8 @@ const quizData = [
   {
     id: 2,
     clue: "Question 2 is near the CDSD booth table.",
-    answer: "quiz",
-    hint: "You are doing it right now.",
+    answer: "CDS",
+    hint: "The major associated with the booth.",
   },
   {
     id: 3,

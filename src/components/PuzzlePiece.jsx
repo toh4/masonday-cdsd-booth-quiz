@@ -8,7 +8,7 @@ function PuzzlePiece({ piece, index, isCompleted, onClick }) {
   return (
     <button
       onClick={handleClick}
-      className="group relative h-full flex-1 overflow-hidden border-r border-white/60 last:border-r-0"
+      className="group relative h-full flex-1 overflow-hidden border-b-4 border-white last:border-b-0"
       aria-label={`Open quiz ${piece.id}`}
     >
       <div
@@ -22,7 +22,7 @@ function PuzzlePiece({ piece, index, isCompleted, onClick }) {
           style={{
             backgroundImage: "url('/assets/cdsd-logo.png')",
             backgroundSize: "300% 100%",
-            backgroundPosition: `${index * 50}% center`,
+            backgroundPosition: `center ${index * 50}%`,
           }}
         />
 
