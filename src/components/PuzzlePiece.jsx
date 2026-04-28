@@ -18,7 +18,7 @@ function PuzzlePiece({ piece, index, isCompleted, onClick }) {
       >
         {/* Logo side */}
         <div
-          className="absolute inset-0 bg-cover bg-no-repeat"
+          className="absolute inset-0 bg-no-repeat"
           style={{
             backgroundImage: "url('/assets/cdsd-logo.png')",
             backgroundSize: "300% 100%",
