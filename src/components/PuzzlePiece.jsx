@@ -1,30 +1,53 @@
 function PuzzlePiece({ piece, index, isCompleted, onClick }) {
+  const handleClick = () => {
+    if (!isCompleted) {
+      onClick(piece);
+    }
+  };
+
   return (
     <button
-      onClick={() => onClick(piece)}
-      className="relative h-full flex-1 overflow-hidden border-r border-white/70 last:border-r-0 transition active:scale-95"
+      onClick={handleClick}
+      className="group relative h-full flex-1 overflow-hidden border-r border-white/60 last:border-r-0"
       aria-label={`Open quiz ${piece.id}`}
     >
       <div
-        className="h-full w-full bg-cover bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/cdsd-logo.png')",
-          backgroundSize: "300% 100%",
-          backgroundPosition: `${index * 50}% center`,
-        }}
-      />
+        className={`relative h-full w-full transition-transform duration-500 ${
+          isCompleted ? "flip-card-completed" : "group-active:scale-110"
+        }`}
+      >
+        {/* Logo side */}
+        <div
+          className="absolute inset-0 bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: "url('/assets/cdsd-logo.png')",
+            backgroundSize: "300% 100%",
+            backgroundPosition: `${index * 50}% center`,
+          }}
+        />
 
-      <div className="absolute inset-0 bg-black/0 transition hover:bg-black/10" />
-
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-slate-800 shadow">
-        Quiz {piece.id}
-      </div>
-
-      {isCompleted && (
-        <div className="absolute inset-0 flex items-center justify-center bg-green-500/30">
-          <div className="rounded-full bg-white p-3 text-4xl shadow-lg">✅</div>
+        {/* Black cover side */}
+        <div
+          className={`absolute inset-0 flex items-center justify-center bg-black transition-all duration-500 ${
+            isCompleted
+              ? "rotate-y-180 opacity-0"
+              : "opacity-100 group-hover:scale-105"
+          }`}
+        >
+          <span className="rotate-[-90deg] text-2xl font-black tracking-widest text-white">
+            Quiz {piece.id}
+          </span>
         </div>
-      )}
+
+        {/* Completed check */}
+        {isCompleted && (
+          <div className="absolute inset-0 flex items-center justify-center bg-green-500/20">
+            <div className="rounded-full bg-white p-2 text-3xl shadow-lg">
+              ✅
+            </div>
+          </div>
+        )}
+      </div>
     </button>
   );
 }
