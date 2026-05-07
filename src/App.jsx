@@ -78,7 +78,7 @@ function App() {
   <button
     type="button"
     onClick={() => setShowMap((prev) => !prev)}
-    className="w-full rounded-xl bg-slate-900 px-4 py-3 text-base font-bold text-white shadow transition hover:bg-slate-700"
+    className="mx-auto inline-flex min-w-[180px] max-w-[240px] items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-base font-bold text-white shadow transition hover:bg-slate-700"
   >
     Mason Day Map
   </button>
