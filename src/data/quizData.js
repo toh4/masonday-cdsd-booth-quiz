@@ -27,7 +27,7 @@ const quizData = [
               "c) print('hello')", 
               "d) Both b and c"],
     correctAnswer: "d) Both b and c",
-    hint: "It is a way to model real-world systems on a computer.",
+    hint: "Without quotes, Python gets confused.",
   },
 ];
 
