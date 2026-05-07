@@ -36,7 +36,8 @@ function App() {
         </h1>
 
         <p className="mt-3 text-base text-slate-600">
-          Tap each logo piece, find the hidden question, and enter the answer.
+          Tap each logo piece, find the hidden question, and choose the correct
+          answer.
         </p>
 
         <div className="mt-8">

@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import ResultEffect from "./ResultEffect";
 
 function QuizModal({ selectedPiece, onClose, onCorrect }) {
-  const [answerInput, setAnswerInput] = useState("");
   const [result, setResult] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
   const [showHintButton, setShowHintButton] = useState(false);
   const [hintVisible, setHintVisible] = useState(false);
-  const [shakeInput, setShakeInput] = useState(false);
+  const [shakeOptions, setShakeOptions] = useState(false);
 
   useEffect(() => {
-    setAnswerInput("");
     setResult(null);
+    setSelectedOption("");
     setShowHintButton(false);
     setHintVisible(false);
-    setShakeInput(false);
+    setShakeOptions(false);
   }, [selectedPiece]);
 
   useEffect(() => {
@@ -28,11 +28,11 @@ function QuizModal({ selectedPiece, onClose, onCorrect }) {
 
   if (!selectedPiece) return null;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
 
-    const userAnswer = answerInput.trim().toLowerCase();
-    const correctAnswer = selectedPiece.answer.trim().toLowerCase();
+    const userAnswer = option.trim().toLowerCase();
+    const correctAnswer = selectedPiece.correctAnswer.trim().toLowerCase();
 
     if (userAnswer === correctAnswer) {
       setResult("correct");
@@ -42,10 +42,10 @@ function QuizModal({ selectedPiece, onClose, onCorrect }) {
     } else {
       setResult("wrong");
       setShowHintButton(true);
-      setShakeInput(true);
+      setShakeOptions(true);
 
       setTimeout(() => {
-        setShakeInput(false);
+        setShakeOptions(false);
       }, 400);
     }
   };
@@ -78,27 +78,28 @@ function QuizModal({ selectedPiece, onClose, onCorrect }) {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-5">
-          <label className="mb-2 block text-sm font-bold text-slate-700">
-            Enter your answer
-          </label>
+        <div className="mt-5">
+          <p className="mb-3 block text-sm font-bold text-slate-700">
+            Choose the correct answer
+          </p>
 
-          <input
-            value={answerInput}
-            onChange={(e) => setAnswerInput(e.target.value)}
-            placeholder="Type your answer here"
-            className={`w-full rounded-2xl border-2 px-4 py-4 text-lg outline-none transition focus:border-indigo-500 ${
-              shakeInput ? "shake border-red-500" : "border-slate-200"
-            }`}
-          />
-
-          <button
-            type="submit"
-            className="mt-4 w-full rounded-2xl bg-indigo-600 py-4 text-lg font-black text-white shadow-lg active:scale-95"
-          >
-            Submit Answer
-          </button>
-        </form>
+          <div className={`grid gap-3 ${shakeOptions ? "shake" : ""}`}>
+            {selectedPiece.options.map((option) => (
+              <button
+                key={option}
+                type="button"
+                onClick={() => handleOptionClick(option)}
+                className={`rounded-2xl border-2 px-4 py-4 text-left text-base font-bold transition active:scale-95 ${
+                  selectedOption === option
+                    ? "border-indigo-600 bg-indigo-50 text-indigo-700"
+                    : "border-slate-200 bg-white text-slate-800 hover:border-indigo-300"
+                }`}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <ResultEffect result={result} />
 
