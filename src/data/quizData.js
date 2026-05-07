@@ -22,11 +22,11 @@ const quizData = [
   {
     id: 3,
     clue: "You can find Quiz 2 near Booth 11",
-    options: ["print(hello)", 
-              "print(\"hello\")", 
-              "print('hello')", 
-              "Both B and C"],
-    correctAnswer: "Both B and C",
+    options: ["a) print(hello)", 
+              "b) print(\"hello\")", 
+              "c) print('hello')", 
+              "d) Both b and c"],
+    correctAnswer: "d) Both b and c",
     hint: "It is a way to model real-world systems on a computer.",
   },
 ];
