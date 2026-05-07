@@ -70,6 +70,9 @@ function App() {
             <p className="mt-2 text-xl font-black">
               CDSD Booth Quiz Completed!
             </p>
+            <p className="mt-2 text-xl font-black">
+              Come back to CDSD Booth!
+            </p>
           </div>
         )}
       </section>
