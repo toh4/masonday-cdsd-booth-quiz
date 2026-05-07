@@ -6,6 +6,7 @@ import QuizModal from "./components/QuizModal.jsx";
 function App() {
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [completedPieces, setCompletedPieces] = useState([]);
+  const [showMap, setShowMap] = useState(false);
 
   const handleSelectPiece = (piece) => {
     setSelectedPiece(piece);
@@ -36,7 +37,7 @@ function App() {
         </h1>
 
         <p className="mt-3 text-base text-slate-600">
-          Tap each logo piece, find the hidden question, and choose the correct
+          Tap each quiz piece, find the hidden question, and choose the correct
           answer.
         </p>
 
@@ -72,6 +73,26 @@ function App() {
           </div>
         )}
       </section>
+
+      <div className="mt-6">
+  <button
+    type="button"
+    onClick={() => setShowMap((prev) => !prev)}
+    className="w-full rounded-xl bg-slate-900 px-4 py-3 text-base font-bold text-white shadow transition hover:bg-slate-700"
+  >
+    Mason Day Map
+  </button>
+
+  {showMap && (
+    <div className="mt-4 overflow-hidden rounded-2xl bg-white p-3 shadow-lg">
+      <img
+        src="/assets/mason-day-map.png"
+        alt="Mason Day Map"
+        className="w-full rounded-xl"
+      />
+    </div>
+  )}
+</div>
 
       <QuizModal
         selectedPiece={selectedPiece}
