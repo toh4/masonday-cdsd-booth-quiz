@@ -21,7 +21,7 @@ const quizData = [
   },
   {
     id: 3,
-    clue: "You can find Quiz 2 near Booth 11",
+    clue: "You can find Quiz 3 near Booth 11",
     options: ["a) print(hello)", 
               "b) print(\"hello\")", 
               "c) print('hello')", 
